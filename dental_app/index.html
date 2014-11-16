@@ -44,9 +44,14 @@
             <h2>Seen by</h2>
 
             <div class="form-group">
-                <label for="ctx_composer_name">Clinician name</label>
+                <label for="ctx_composer_name">Dentist name</label>
                 <input type="text" class="form-control" id="ctx_composer_name" placeholder="Firstname Lastname">
             </div>
+            <div class="form-group">
+                <label for="ctx_healthcare_facility">Clinic</label>
+                <input type="text" class="form-control" id="ctx_healthcare_facility" placeholder="Clinic Name, Address">
+            </div>
+
             <div class="form-group">
                 <label for="ctx_time">Date assessed</label>
                 <input type="date" class="form-control" id="ctx_time"/>
@@ -93,15 +98,23 @@
     <div class="container-fluid">
         <h2>Examination findings</h2>
 
+        <div class="col-sm-2">
+            <div class="form-group">
+
+            <label for="num_teeth_decay">Teeth with decay</label>
+                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_decay"
+                       placeholder="#0-32"/>
+            </div>
+        </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" id="exam_dental_swelling"> Dental swelling /<input>
+                <input type="checkbox" id="exam_dental_swelling"> Dental swelling<input>
             </label>
 
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" id="exam_poor_plaque_control"> Poor plaque control /<input>
+                <input type="checkbox" id="exam_poor_plaque_control"> Poor plaque control<input>
             </label>
 
         </div>
@@ -122,9 +135,9 @@
         <div class="col-sm-2">
             <div class="form-group">
 
-                <label for="num_teeth_decay">Teeth with decay</label>
+                <label for="num_radio_teeth_decay">Teeth with decay</label>
 
-                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_decay"
+                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_radio_teeth_decay"
                        placeholder="#0-32"/>
             </div>
         </div>
