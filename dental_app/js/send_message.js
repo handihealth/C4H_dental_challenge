@@ -46,7 +46,7 @@ function js_traverse(obj) {
             // Dentist info
             if (key == "ctx/composer_name") {
                 obj[key] = ctx_composer_name;
-                console.log("ctx_composer_name : " + substr);
+                console.log("ctx_composer_name : " + obj[key]);
                 //subobj.value = ctx_composer_name;
             }
             if (key == "teeth_with_decay") {
