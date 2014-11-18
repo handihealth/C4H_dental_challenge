@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Community Paediatric Dental Assessment Final report</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,7 +18,22 @@
 </head>
 
 <body>
+	
+	 <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/handihealth/C4H_dental_challenge">View on GitHub</a>
 
+          <h1 id="project_title">Community Paediatric Dental Assessment Final report</h1>
+          <h2 id="project_tagline">Demo</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/handihealth/C4H_dental_challenge/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/handihealth/C4H_dental_challenge/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+<hr/>
 <div class="container">
     <div class="container-fluid">
         <h1>Community Paediatric Dental Assessment Final report</h1>
@@ -29,16 +44,31 @@
         </div>
         <div class="form-group">
             <label for="patient_nhs_number">NHS Number</label>
-            <input type="text" class="form-control" id="patient_nhs_number"/>
+            <input type="text" class="form-control" id="patient_nhs_number" placeholder="NHS Number"/>
         </div>
         <div class="form-group">
             <label for="patient_dob">Patient Date of Birth</label>
             <input type="date" class="form-control" id="patient_dob"/>
         </div>
+
+        <!--DropDown list-->
+        <div class="form-group dropdown">
+            <label for="patient_gender">Gender </label>
+            <button class="btn btn-default dropdown-toggle" type="button" id="patient_gender" data-toggle="dropdown"
+                    aria-expanded="true">
+                Gender
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu myDropdown" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1">Male</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1">Female</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1">Other</a></li>
+            </ul>
+        </div>
     </div>
 
     <hr/>
-
+    <!--Dentist info-->
     <div class="container">
         <div class="container-fluid">
             <h2>Seen by</h2>
@@ -61,6 +91,8 @@
         <hr/>
     </div>
 
+
+    <!--primary school-->
     <div class="container">
         <div class="container-fluid">
             <h2>Primary School</h2>
@@ -82,80 +114,92 @@
     </div>
     <hr/>
 
-    <div class="container-fluid">
-        <h2>History</h2>
+    <!--history-->
+    <div class="container">
+        <div class="container-fluid">
+            <h2>History</h2>
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" id="symptom_dental_pain"> Dental pain /<input>
-            </label>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="symptom_dental_pain"> Dental pain </input>
+                </label>
 
-        </div>
-    </div>
-
-    <hr/>
-
-    <div class="container-fluid">
-        <h2>Examination findings</h2>
-
-        <div class="col-sm-2">
-            <div class="form-group">
-
-            <label for="num_teeth_decay">Teeth with decay</label>
-                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_decay"
-                       placeholder="#0-32"/>
             </div>
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" id="exam_dental_swelling"> Dental swelling<input>
-            </label>
-
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" id="exam_poor_plaque_control"> Poor plaque control<input>
-            </label>
-
-        </div>
     </div>
-
     <hr/>
 
+    <!--Examination-->
+    <div class="container">
+        <div class="container-fluid">
+            <h2>Examination findings</h2>
+
+            <div class="col-sm-2">
+                <div class="form-group">
+
+                    <label for="num_teeth_decay">Teeth with decay</label>
+                    <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_decay"
+                           placeholder="#0-32"/>
+                </div>
+            </div>
+
+            <div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="exam_dental_swelling"> Dental swelling</input>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="exam_poor_plaque_control"> Poor plaque control</input>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+
+<!--Radiology Findings-->
+<div class="container">
     <div class="container-fluid">
         <h2>Radiology Findings</h2>
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" id="no_problems_detected"> No problems detected /<input>
+                <input type="checkbox" id="no_problems_detected"> No problems detected </input>
             </label>
-        </div>
-
-
-        <div class="col-sm-2">
-            <div class="form-group">
-
-                <label for="num_radio_teeth_decay">Teeth with decay</label>
-
-                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_radio_teeth_decay"
-                       placeholder="#0-32"/>
-            </div>
-        </div>
-
-        <div class="col-sm-2">
-            <div class="form-group">
-                <label for="num_teeth_abscess">Teeth with abscess</label>
-
-                <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_abscess"
-                       placeholder="#0-32"
-                       oninput=""
-                        />
-            </div>
         </div>
     </div>
 
-    <hr/>
+    <div class="col-sm-2">
+        <div class="form-group">
 
+            <label for="num_radio_teeth_decay">Teeth with decay</label>
+
+            <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_radio_teeth_decay"
+                   placeholder="#0-32"/>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label for="num_teeth_abscess">Teeth with abscess</label>
+
+            <input type="number" maxlength="2" max="32" min="0" class="form-control" id="num_teeth_abscess"
+                   placeholder="#0-32"
+                   oninput=""
+                    />
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<!--Caries-->
+<div class="container">
     <div id="caries" class="container-fluid">
         <h2>Caries (Tooth Decay)</h2>
 
@@ -204,9 +248,11 @@
             <span id="caries_result" class="label label-success">green</span>
         </div>
     </div>
+</div>
+<hr/>
 
-    <hr/>
-
+<!--Tooth Surface Loss-->
+<div class="container">
     <div id="surface_loss" class="container-fluid">
         <h2>Tooth Surface Loss </h2>
 
@@ -275,9 +321,11 @@
             <span id="surface_loss_result" class="label label-success">green</span>
         </div>
     </div>
+</div>
+<hr/>
 
-    <hr/>
-
+<!--Periodontal Disease (Gum Disease) -->
+<div class="container">
     <div id="periodontal" class="container-fluid">
         <h2>Periodontal Disease (Gum Disease) </h2>
 
@@ -342,7 +390,11 @@
         </div>
 
     </div>
-    <hr/>
+</div>
+<hr/>
+
+<!--Soft Tissue-->
+<div class="container">
     <div id="cancer" class="container-fluid">
         <h2>Soft Tissue (Mouth Cancer) </h2>
 
@@ -402,9 +454,9 @@
 
 
     </div>
-
-    <hr/>
-
+</div>
+<hr/>
+<div class="container">
     <div class="container-fluid">
         <h2>Plan and requested actions</h2>
 
@@ -415,9 +467,9 @@
         </div>
 
     </div>
-
-    <hr/>
-
+</div>
+<hr/>
+<div class="container">
     <div class="container-fluid">
         <h2>Follow-up</h2>
 
@@ -428,9 +480,9 @@
         </div>
 
     </div>
-
-    <hr/>
-
+</div>
+<hr/>
+<div class="container">
     <div class="container-fluid">
         <div class="form-group">
             <label for="clinical_synopsis">Summary</label>
@@ -439,8 +491,8 @@
         </div>
 
     </div>
-
-    <hr/>
+</div>
+<hr/>
 </div>
 
 <!--
