@@ -1,0 +1,51 @@
+{
+  "ctx/composer_name": "Rebecca Wassall",
+  "ctx/health_care_facility|id": "999999-345",
+  "ctx/health_care_facility|name": "Northumbria Community NHS",
+  "ctx/id_namespace": "NHS-UK",
+  "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+  "ctx/language": "en",
+  "ctx/territory": "GB",
+  "ctx/time": "2014-09-23T00:11:02.518+02:00",
+	  "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/caries_risk|code": "at0024",
+    "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/caries_risk|ordinal": 2,
+    "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/caries_risk|value": "Red",
+    "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/clinical_factors|code": "at0025",
+    "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/patient_factors:0|code": "at0029",
+    "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/patient_factors:1|code": "at0030",
+    "community_dental_final_assessment_letter/clinical_summary/clinical_synopsis:0/synopsis": "Significant dental issues.",
+    "community_dental_final_assessment_letter/patient_demographics:0/relevant_contacts/formal_carer:0/primary_school_contact/person_name/contact_name": "Nurse Baw",
+    "community_dental_final_assessment_letter/patient_demographics:0/relevant_contacts/formal_carer:0/primary_school_contact/telecom_details_uk:0/contact_telecoms": "Mobile 0775 343 46547",
+    "community_dental_final_assessment_letter/patient_demographics:0/relevant_contacts/formal_carer:0/primary_school_contact/primary_school": "St Mungo Primary school",
+    "community_dental_final_assessment_letter/outpatient_details/outpatient_administration:0/contact_type|code": "at0008",
+
+    "community_dental_final_assessment_letter/history:0/story_history:0/symptom:0/symptom_name|value": "Painful mouth",
+		"community_dental_final_assessment_letter/history:0/story_history:0/symptom:0/symptom_name|code": "102616008",
+		"community_dental_final_assessment_letter/history:0/story_history:0/symptom:0/symptom_name|terminology": "SNOMED-CT",
+    "community_dental_final_assessment_letter/examination_findings:0/physical_examination_findings:0/oral_examination/plaque_control|code": "at0003",
+    "community_dental_final_assessment_letter/examination_findings:0/physical_examination_findings:0/oral_examination/dental_swelling|code": "at0006",
+		"community_dental_final_assessment_letter/examination_findings:0/physical_examination_findings:0/oral_examination/teeth_with_decay": 3,
+   
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/examination_result_name|code": "22891007",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/examination_result_name|terminology": "SNOMED-CT",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/examination_result_name|value": "Radiography of teeth ",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/overall_result_status|code": "at0011",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/radiological_diagnosis:0|code": "23875004",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/radiological_diagnosis:0|terminology": "SNOMED-CT",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/radiological_diagnosis:0|value": "No pathologic diagnosis",
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/result_group/decayed_teeth/decayed_teeth": 4,
+    "community_dental_final_assessment_letter/investigations_and_results:0/imaging_examination_result:0/result_group/teeth_with_associated_abscesses/teeth_with_associated_abscesses": 3,
+    "community_dental_final_assessment_letter/outpatient_details/outpatient_administration:0/contact_type|code": "at0008",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/narrative": "Dental examination",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/description_of_follow_up": "Review in 4 weeks.",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/follow_up_service_requested|code": "141954009",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/follow_up_service_requested|terminology": "SNOMED-CT",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/follow_up_service_requested|value": "Dental examination",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/timing|formalism": "dummy",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/follow_up_request:0/request:0/timing|value": "dummy",
+    "community_dental_final_assessment_letter/plan_and_requested_actions:0/plan_and_requested_actions_synopsis/synopsis": "Preventitive dental care, Dental treatment under GA"
+   
+
+}
+
+
