@@ -86,18 +86,21 @@ The dataset for the Dental Assessment form is defined as an 'openEHR template'. 
 
 **Dental swelling:** `datatype=codedText`  
   
-* Dental swelling present `local:at00002::Good plaque control`  
-* Dental swelling absent  `local::at0003::Poor plaque control` 
+* Dental swelling present `local::at0005::Dental swelling present`   
+* Dental swelling absent  `local::at0006::Dental swelling absent` 
 	 
 **Plaque control:**  `datatype=codedText`  
 
-* Good plaque control `local::at0005::Dental swelling present`  
-* Poor plaque control `local::at0006::Dental swelling absent`  
+* Good plaque control `local:at00002::Good plaque control` 
+* Poor plaque control `local::at0003::Poor plaque control`  
  
 ####Radiology Findings section
 *Either*  
+
   **No problems detected:** `datatype=codedText: SNOMED-CT::23875004:No diagnostic abnormality`    
-*or*    
+
+*or* 
+   
   **Number of teeth with decay (0-32):** `datatype=count:0-32 (integer)`   
   **Teeth with abscess (0-32):**`datatype=count:0-32 (integer)`  
  
@@ -114,7 +117,7 @@ For this application only the Caries (Tooth decay) aspect of the original RAG sc
  *  Symptoms `local::at0027::Symptoms`  
  *  Diet - Excess sugar / frequent sugar `local::at0028::Diet - Excess sugar / frequent sugar`   
  *  Unsatisfactory Plaque control `local::at0029::Unsatisfactory Plaque control`  
- *  Sibling experience `local::at0030::Sibling experience'`  
+ *  Sibling experience `local::at0030::Sibling experience`  
  
 **Risk Score:** `ordinal` 
 
@@ -142,25 +145,37 @@ Retreive First name, Last Name, Address, Date of Birth, NHS Number, Gender.
 
 The API will follow the FHIR Patient resource very closely and is likely to be of the form:
 
-    GET {{baseurl}}/patient/?identifer={{nhsNumber}}
+    GET {{baseurl}}/patient/?identifer={{nhsNumber}} where nhsNumber=7430345
+		
+		
+Two servers are avaiable
 
-This will return a JSON string aligned with the [FHIR Patient resource.](http://hl7-fhir.github.io/patient.html)
+*  [BlackPear FHIRBall server](https://pyruscloud.blackpear.com/fhir/Patient?identifier=7430345)  
+*  [NeovaHealth FHIR server](http://nhsdemo.openeobs.net/api/v1/patient?identifier=7430345) (needs Basic Authentication: login=fhir_api pwd=fhir_api))
 
-[FHIR JSON Patient Example](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/fhir%20child%20female.json)
+This will return a FHIR JSON string aligned with the [FHIR Patient resource.](http://hl7-fhir.github.io/patient.html)
+
+e.g. [FHIR JSON Patient Example](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/fhir%20child%20female.json)
 
 
 ###B. Develop Dental Assessment form 
 
-Hack teams are free to develop the Dental Assessment data entry form in any way they choose, so long as the key requirements are met. We expect a number of community dental stakeholders to be on-hand to offer advice and feedback. The prime objective is to be able ot share te data collected in an interoperable format.
+Hack teams are free to develop the Dental Assessment data entry form in any way they choose, so long as the key requirements are met. We expect a number of community dental stakeholders to be on-hand to offer advice and feedback. The prime objective is to be able ot share the data collected in an interoperable format.
+
+Tablet or desktop formats are probably more appropriate to this use-case than phone formats.
 
 ###C. Persist the Dental Assessment Form as openEHR via HANDI-HOPD Ehrscape
 
+All openEHR data is persisted as a COMPOSITION class. openEHR data can be highly structured and potentially complex. To simplify the challenge of persisting openEHR data, examples of Dental Assessment 'target composition' data instanceshave been provided in different formats. HANDI-HOPD EhrScape will accept any of these formats and the data is in each example is persisted identically. Other openEHR servers such as OceanEHR, Code24 and Cabolabs currently only support the RAW XML format.
 
-Example openEHR target composiiton documents
+Once the data is assembled in the correct format, the actual service call is very simple requiring only the setting of simple paramters and headers.
 
-[openEHR Structured JSON]https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(STRUCTURED).json
-[openEHR Flat JSON]https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(FLAT).json
-[openEHR Raw XML]https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(RAW).xml
+**Example openEHR target Composition documents**
+
+[openEHR Structured JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(STRUCTURED.json)
+[openEHR Flat JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(FLAT.json)
+[openEHR Raw XML](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(RAW.xml)
+
 
 
 ##openEHR and HANDI-HOPD Ehrscape
