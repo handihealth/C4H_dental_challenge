@@ -33,9 +33,9 @@ It is expected that most hack teams will concentrate on items 1,2,3.
 We have identified a team who are happy to concentrate on items 4 and 5.
 
 ###What has been pre-prepared
-To ensure that the app challenge can progress rapidly, a small number of assets have been pre-prepared
+To ensure that the app challenge can progress rapidly, a small number of assets have been pre-prepared...
 
-*   openEHR archetypes and 'Dental Assessment Final Report' template, defining the taget dataset 'schema'
+*   openEHR archetypes and 'Dental Assessment Final Report' template, defining the target dataset 'schema'
 *   openEHR Dental Assessment Final Report' instance data examples matching the target dataset schema
 *   A minimal Prototype Dental Assesment data entry web app
 
@@ -44,26 +44,33 @@ To ensure that the app challenge can progress rapidly, a small number of assets 
 
  The key challenge for hack teams is to map the data fields into a target openEHR JSON string (to be provided). That string is then passed to the Ehrscape API for persistence.
 
-####Key open*EHR* datatypes
-openEHR has a very rich set of allowable datatypes. A full defiinition is beyond the scope of this document but developers new to this field may find the follwoing notes helpful
+####Key openEHR datatypes
+openEHR has a very rich set of allowable datatypes. A full defiinition is beyond the scope of this document but developers new to this field may find the follwoing notes helpful.
 
-**text / codedText**
-codedText is a commonly used datatype in openEHR systems and is a sub-class of text. i.e whereever ext is specified codedText can be used instead.   
-Codes may be 'external' e.g. SNOMED CT or 'local', where they are defined within archetypes and have the form 'atxxxxx'.   
-A codedText element always includes the terminologyID, the code itself and the text of the coded concept (Rubric).  
-Where a codedText item is required, allowed value(s) are expressed in the form:  
+*  **'text'** allows the recording of simple,unformatted text. openEHR does not normally constrain the length of string.
+ 
+*  **'codedText'** is a commonly used datatype in openEHR systems and is a sub-class of text. i.e where-ever text is specified codedText can be used instead. 
+  
+  Codes may be 'external' e.g. SNOMED CT or 'local', where they are defined within archetypes and have the form 'atxxxxx'.   
+
+  A codedText element always includes the terminologyID, the code itself and the text of the coded concept (Rubric).  
+  Where a codedText item is required, allowed value(s) are expressed in the form:  
 
 	terminologyId::code::rubric
 	
-	e.g. local::at0007::Dentalswelling
-	or   SNOMED-CT::123456::No pathology found
+	e.g. local::at0007::Dental swelling
+	
+	     SNOMED-CT::123456::No pathology found
 
-**ordinal**
-'ordinal' is a datatype which combines coded_text with a score, expressed as an integer.  
+*  **'ordinal'** is a datatype which combines codedText with a score, expressed as an integer.  
    
-*  0 Green `local::at0022::Green`    
-*  1 Amber `local::at0023::Amber`   
-*  2 Red   `local::at0024::Red`  
+   *  0: Green  `local::at0022::Green`    
+   *  1: Amber  `local::at0023::Amber`   
+   *  2: Red    `local::at0024::Red`
+		 	    
+*  **'count'** is a simple integer.  
+
+*  **'dateTime'** records a date or date and time using the [ISO8061 format](http://www.w3.org/TR/NOTE-datetime).
  
 ###The Dental Assessment dataset 
 The dataset for the Dental Assessment form is defined as an 'openEHR template'. This is assembled  from a number of open source component 'archetypes' e.g. 'Symptom', 'Physical Examination' etc. These are brought together into a 'template' and further constrained to fit the Dental Assessment use-case.
@@ -146,17 +153,17 @@ Retreive First name, Last Name, Address, Date of Birth, NHS Number, Gender.
 The API will follow the FHIR Patient resource very closely and is likely to be of the form:
 
     GET {{baseurl}}/patient/?identifer={{nhsNumber}} where nhsNumber=7430345
-		
-		
-Two servers are avaiable
+
+Two FHIR demographics servers are available
 
 *  [BlackPear FHIRBall server](https://pyruscloud.blackpear.com/fhir/Patient?identifier=7430345)  
-*  [NeovaHealth FHIR server](http://nhsdemo.openeobs.net/api/v1/patient?identifier=7430345) (needs Basic Authentication: login=fhir_api pwd=fhir_api))
+*  [NeovaHealth FHIR-like server](http://nhsdemo.openeobs.net/api/v1/patient?identifier=7430345) (needs Basic Authentication: login=fhir_api pwd=fhir_api))
 
-This will return a FHIR JSON string aligned with the [FHIR Patient resource.](http://hl7-fhir.github.io/patient.html)
+This will return a FHIR JSON string aligned with the [FHIR Patient resource.](http://hl7-fhir.github.io/patient.html).
 
 e.g. [FHIR JSON Patient Example](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/fhir%20child%20female.json)
 
+Note that these severs currently return slightly different formats. This is expected to be resolved as part of the App challenge, or possibly in advance.
 
 ###B. Develop Dental Assessment form 
 
@@ -170,33 +177,129 @@ All openEHR data is persisted as a COMPOSITION class. openEHR data can be highly
 
 Once the data is assembled in the correct format, the actual service call is very simple requiring only the setting of simple paramters and headers.
 
-**Example openEHR target Composition documents**
+**Example openEHR target Composition Documents**
 
-[openEHR Structured JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(STRUCTURED.json)
-[openEHR Flat JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(FLAT.json)
-[openEHR Raw XML](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20(RAW.xml)
+[Structured JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20STRUCTURED.json)
+[Flat JSON](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20FLAT.json)
+[Raw XML](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/AoMRC%20Community%20Dental%20Assessment%20 RAW.xml)
+
+A typical CURL to persist FLAT JSON is ..
+
+ 
+###D. Create a web service to retrieve the stored openEHR composition,  transform to PDF
+
+Once the openEHr composition is stored, a separate service should retrieve the document, transform it to a PDF with a format similar to the [example Dental Assessment Letters](https://github.com/handihealth/C4H_dental_challenge/tree/master/docs), then attach to an email.
 
 
+###E. Re-persist the composition to other openEHR servers
 
-##openEHR and HANDI-HOPD Ehrscape
+Several openEHR server vendors are working to emulate the key aspects of the Marand Ehrscape API so that it should be possible to demonstrate that these can consume and retrieve properly formatted openEHR canonical XML data.
+
+Appropriate APIs will be provided but these should match the [EhrScape composition APIs](https://www.ehrscape.com/api-explorer.html), other than having a different baseUrl. Only XML RAW format is supported.
+
+
+#openEHR and HANDI-HOPD Ehrscape
+
+The [HANDI-HOPD Ehrscape API](https://www.ehrscape.com/api-explorer.html), developed by Marand, provides a simple restful API which hides much of the complexity of the underlying openEHR server. In particular it accepts simpler, flatter forms of data, using defaults within the template schema to correctly populate the canonical openEHR data which is actually stored internally.
+
+e.g. If working with an internal codedText value in the FLAT JSON format,it is only necessary to provide the local code, the terminologyId and Rubric being derived from the accompanying template.
+
+    FLAT JSON
+		 ... "community_dental_final_assessment_letter/assessment_scales/dental_rag_score:0/caries_tooth_decay/clinical_factors|code": "at0025", ...
+		 
+    STRUCTURED JSON
+     ... "clinical_factors": [
+       {
+        "|code": "at0025",
+        "|terminology": "local",
+        "|value": "Teeth with carious lesions"
+      }
+      ]	...
+			
+		RAW XML
+		... <ns2:value xsi:type="ns2:DV_CODED_TEXT">
+		        <ns2:value>Teeth with carious lesions</ns2:value>
+		            <ns2:defining_code>
+			            <ns2:terminology_id>
+			 	            <ns2:value>local</ns2:value>
+			           </ns2:terminology_id>
+			           <ns2:code_string>at0025</ns2:code_string>
+		           </ns2:defining_code>
+	         </ns2:value>
+       </ns2:value> ...			 
+
+
+###Handling specific datatypes
+
+**text**
+
+**codedText**
+
+**ordinal**
+
+**date**
+
+**Multiple occurrence data**
+
+
+### Reference model attributes
+
+A number of key data points need to be populated in an openEHR composition, which may not be appraent from the archetypes or templates. Developers can largely use the example instance documents and APIs for guidance but these notes may give useful background. Links are given to a UML representation ofthe openEHR documentation.
+
+    API attributes
+		commiter
+    committerId
+
+    COMPOSITION attributes
+		composer
+    composerId
+
+    starttime
+
+    healthcare_facility
+
+    OBSERVATION attributes
+		
+		/time
+
+    ACTION attributes
+		
+		/time
+
+
+The Ehrscape FLAT and STRUCTURED formats hide much of the complexity of these attributes, providing sensible defaults.
+In particular the `ctx` header common to both JSON STRUCTURED and FLAT formats, considerably simplifies the composition header ...
+
+    "ctx/composer_name": "Rebecca Wassall",
+    "ctx/health_care_facility|id": "999999-345",
+    "ctx/health_care_facility|name": "Northumbria Community NHS",
+    "ctx/id_namespace": "NHS-UK",
+    "ctx/id_scheme": "2.16.840.1.113883.2.1.4.3",
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/time": "2014-09-23T00:11:02.518+02:00",
+
+
+###Key openEHR identifiers###
+
+**subjectId/externalId**
+
+The subjectId (sometimes called externalId) is a patient identifier which is known outwith the openEHR system e.g. a hospital identifier or NHS number.
+
+**ehrId**
+
+In an openEHR system, each patient has an ehr (a per-patient electronic health record) with a unique **ehrId** identifier (usually a guid). All references to openEHR patient data are via this ehrId. An API call `GET ehr/` is used to reference the ehrId from the provided subjectId/externalId.
+
+Other subsequent calls to the openEHR system for that particular patient are via the ehrId.
+
+**compositionId**
+
+All openEHR data is committed as one or more compositions, which is then assigned a unique compositionId. If the composition is subsequently updated the root compositionId remain unchanged but its version number is incremented. All previous composition versions are retained.
+
+
+##HANDI-HOPD Ehrscape primer
 
 
 TBD
 
-The Ehrscape API developed by Marand, provides a simple Restful API which hides much of the complexity of the underlying openEHR server.
-
-
-
-Handling specific datatypes
-
-text
-
-codedText
-
-ordinal
-
-date
-
-
-Multiple occurrence data
 
