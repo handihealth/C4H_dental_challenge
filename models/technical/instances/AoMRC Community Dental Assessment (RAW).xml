@@ -1,0 +1,818 @@
+<?xml version="1.0"?>
+<composition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://schemas.openehr.org/v1" xsi:type="ns2:COMPOSITION" archetype_node_id="openEHR-EHR-COMPOSITION.report.v1">
+	<ns2:name>
+		<ns2:value>Community Dental Final Assessment Letter</ns2:value>
+	</ns2:name>
+	<ns2:uid xsi:type="ns2:OBJECT_VERSION_ID">
+		<ns2:value>82b75afd-b874-406f-8305-bc83adcf68ad::c4h_dental::1</ns2:value>
+	</ns2:uid>
+	<ns2:archetype_details>
+		<ns2:archetype_id>
+			<ns2:value>openEHR-EHR-COMPOSITION.report.v1</ns2:value>
+		</ns2:archetype_id>
+		<ns2:template_id>
+			<ns2:value>UK AoMRC Community Dental Final Assessment</ns2:value>
+		</ns2:template_id>
+		<ns2:rm_version>1.0.1</ns2:rm_version>
+	</ns2:archetype_details>
+	<ns2:language>
+		<ns2:terminology_id>
+			<ns2:value>ISO_639-1</ns2:value>
+		</ns2:terminology_id>
+		<ns2:code_string>en</ns2:code_string>
+	</ns2:language>
+	<ns2:territory>
+		<ns2:terminology_id>
+			<ns2:value>ISO_3166-1</ns2:value>
+		</ns2:terminology_id>
+		<ns2:code_string>GB</ns2:code_string>
+	</ns2:territory>
+	<ns2:category>
+		<ns2:value>event</ns2:value>
+		<ns2:defining_code>
+			<ns2:terminology_id>
+				<ns2:value>openehr</ns2:value>
+			</ns2:terminology_id>
+			<ns2:code_string>433</ns2:code_string>
+		</ns2:defining_code>
+	</ns2:category>
+	<ns2:composer xsi:type="ns2:PARTY_IDENTIFIED">
+		<ns2:name>Rebecca Wassall</ns2:name>
+	</ns2:composer>
+	<ns2:context>
+		<ns2:start_time>
+			<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+		</ns2:start_time>
+		<ns2:setting>
+			<ns2:value>other care</ns2:value>
+			<ns2:defining_code>
+				<ns2:terminology_id>
+					<ns2:value>openehr</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>238</ns2:code_string>
+			</ns2:defining_code>
+		</ns2:setting>
+		<ns2:health_care_facility>
+			<ns2:external_ref>
+				<ns2:id xsi:type="ns2:GENERIC_ID">
+					<ns2:value>999999-345</ns2:value>
+				</ns2:id>
+				<ns2:namespace>NHS-UK</ns2:namespace>
+				<ns2:type>PARTY</ns2:type>
+			</ns2:external_ref>
+			<ns2:name>Northumbria Community NHS</ns2:name>
+		</ns2:health_care_facility>
+	</ns2:context>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.demographics_rcp.v1">
+		<ns2:name>
+			<ns2:value>Patient demographics</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.demographics_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:ADMIN_ENTRY" archetype_node_id="openEHR-EHR-ADMIN_ENTRY.key_contacts.v1">
+			<ns2:name>
+				<ns2:value>Relevant contacts</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-ADMIN_ENTRY.key_contacts.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Tree</ns2:value>
+				</ns2:name>
+				<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="at0014">
+					<ns2:name>
+						<ns2:value>Formal carer</ns2:value>
+					</ns2:name>
+					<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="openEHR-EHR-CLUSTER.individual_professional.v1">
+						<ns2:name>
+							<ns2:value>Primary school contact</ns2:value>
+						</ns2:name>
+						<ns2:archetype_details>
+							<ns2:archetype_id>
+								<ns2:value>openEHR-EHR-CLUSTER.individual_professional.v1</ns2:value>
+							</ns2:archetype_id>
+							<ns2:rm_version>1.0.1</ns2:rm_version>
+						</ns2:archetype_details>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="openEHR-EHR-CLUSTER.person_name.v1">
+							<ns2:name>
+								<ns2:value>Person name</ns2:value>
+							</ns2:name>
+							<ns2:archetype_details>
+								<ns2:archetype_id>
+									<ns2:value>openEHR-EHR-CLUSTER.person_name.v1</ns2:value>
+								</ns2:archetype_id>
+								<ns2:rm_version>1.0.1</ns2:rm_version>
+							</ns2:archetype_details>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0001">
+								<ns2:name>
+									<ns2:value>Contact name</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_TEXT">
+									<ns2:value>Nurse Baw</ns2:value>
+								</ns2:value>
+							</ns2:items>
+						</ns2:items>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="openEHR-EHR-CLUSTER.telecom_uk.v1">
+							<ns2:name>
+								<ns2:value>Telecom details (UK)</ns2:value>
+							</ns2:name>
+							<ns2:archetype_details>
+								<ns2:archetype_id>
+									<ns2:value>openEHR-EHR-CLUSTER.telecom_uk.v1</ns2:value>
+								</ns2:archetype_id>
+								<ns2:rm_version>1.0.1</ns2:rm_version>
+							</ns2:archetype_details>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0002">
+								<ns2:name>
+									<ns2:value>Contact telecoms</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_TEXT">
+									<ns2:value>Mobile 0775 343 46547</ns2:value>
+								</ns2:value>
+							</ns2:items>
+						</ns2:items>
+						<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0012">
+							<ns2:name>
+								<ns2:value>Primary school</ns2:value>
+							</ns2:name>
+							<ns2:value xsi:type="ns2:DV_TEXT">
+								<ns2:value>St Mungo Primary school</ns2:value>
+							</ns2:value>
+						</ns2:items>
+					</ns2:items>
+				</ns2:items>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.outpatient_details_rcp.v1">
+		<ns2:name>
+			<ns2:value>Outpatient details</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.outpatient_details_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:ADMIN_ENTRY" archetype_node_id="openEHR-EHR-ADMIN_ENTRY.outpatient_details_rcp.v1">
+			<ns2:name>
+				<ns2:value>Outpatient administration</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-ADMIN_ENTRY.outpatient_details_rcp.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Tree</ns2:value>
+				</ns2:name>
+				<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Contact type</ns2:value>
+					</ns2:name>
+					<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+						<ns2:value>Scheduled follow-up contact</ns2:value>
+						<ns2:defining_code>
+							<ns2:terminology_id>
+								<ns2:value>local</ns2:value>
+							</ns2:terminology_id>
+							<ns2:code_string>at0008</ns2:code_string>
+						</ns2:defining_code>
+					</ns2:value>
+				</ns2:items>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.history_rcp.v1">
+		<ns2:name>
+			<ns2:value>History</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.history_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:OBSERVATION" archetype_node_id="openEHR-EHR-OBSERVATION.story.v1">
+			<ns2:name>
+				<ns2:value>Story/History</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-OBSERVATION.story.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Event Series</ns2:value>
+				</ns2:name>
+				<ns2:origin>
+					<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+				</ns2:origin>
+				<ns2:events xsi:type="ns2:POINT_EVENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Any event</ns2:value>
+					</ns2:name>
+					<ns2:time>
+						<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+					</ns2:time>
+					<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0003">
+						<ns2:name>
+							<ns2:value>Tree</ns2:value>
+						</ns2:name>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="openEHR-EHR-CLUSTER.symptom.v1">
+							<ns2:name>
+								<ns2:value>Symptom</ns2:value>
+							</ns2:name>
+							<ns2:archetype_details>
+								<ns2:archetype_id>
+									<ns2:value>openEHR-EHR-CLUSTER.symptom.v1</ns2:value>
+								</ns2:archetype_id>
+								<ns2:rm_version>1.0.1</ns2:rm_version>
+							</ns2:archetype_details>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0001">
+								<ns2:name>
+									<ns2:value>Symptom name</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Painful mouth</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>SNOMED-CT</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>102616008</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+						</ns2:items>
+					</ns2:data>
+				</ns2:events>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.examination_findings_rcp.v1">
+		<ns2:name>
+			<ns2:value>Examination findings</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.examination_findings_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:OBSERVATION" archetype_node_id="openEHR-EHR-OBSERVATION.exam.v1">
+			<ns2:name>
+				<ns2:value>Physical Examination Findings</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-OBSERVATION.exam.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Event Series</ns2:value>
+				</ns2:name>
+				<ns2:origin>
+					<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+				</ns2:origin>
+				<ns2:events xsi:type="ns2:POINT_EVENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Any event</ns2:value>
+					</ns2:name>
+					<ns2:time>
+						<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+					</ns2:time>
+					<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0003">
+						<ns2:name>
+							<ns2:value>Tree</ns2:value>
+						</ns2:name>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="openEHR-EHR-CLUSTER.oral_exam_oduk.v1">
+							<ns2:name>
+								<ns2:value>Oral examination</ns2:value>
+							</ns2:name>
+							<ns2:archetype_details>
+								<ns2:archetype_id>
+									<ns2:value>openEHR-EHR-CLUSTER.oral_exam_oduk.v1</ns2:value>
+								</ns2:archetype_id>
+								<ns2:rm_version>1.0.1</ns2:rm_version>
+							</ns2:archetype_details>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0001">
+								<ns2:name>
+									<ns2:value>Plaque control</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Poor plaque control</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>local</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>at0003</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0004">
+								<ns2:name>
+									<ns2:value>Dental swelling</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Dental swelling absent</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>local</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>at0006</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0007">
+								<ns2:name>
+									<ns2:value>Teeth with decay</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_COUNT">
+									<ns2:magnitude>3</ns2:magnitude>
+								</ns2:value>
+							</ns2:items>
+						</ns2:items>
+					</ns2:data>
+				</ns2:events>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.assessment_scales_rcp.v1">
+		<ns2:name>
+			<ns2:value>Assessment scales</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.assessment_scales_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:OBSERVATION" archetype_node_id="openEHR-EHR-OBSERVATION.dental_rag_score.v1">
+			<ns2:name>
+				<ns2:value>Dental RAG score</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-OBSERVATION.dental_rag_score.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Event Series</ns2:value>
+				</ns2:name>
+				<ns2:origin>
+					<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+				</ns2:origin>
+				<ns2:events xsi:type="ns2:POINT_EVENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Any event</ns2:value>
+					</ns2:name>
+					<ns2:time>
+						<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+					</ns2:time>
+					<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0003">
+						<ns2:name>
+							<ns2:value>Tree</ns2:value>
+						</ns2:name>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="at0006">
+							<ns2:name>
+								<ns2:value>Caries (tooth decay)</ns2:value>
+							</ns2:name>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0011">
+								<ns2:name>
+									<ns2:value>Clinical factors</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Teeth with carious lesions</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>local</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>at0025</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0010">
+								<ns2:name>
+									<ns2:value>Patient factors</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Unsatisfactory Plaque control</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>local</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>at0029</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0010">
+								<ns2:name>
+									<ns2:value>Patient factors #2</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+									<ns2:value>Sibling experience</ns2:value>
+									<ns2:defining_code>
+										<ns2:terminology_id>
+											<ns2:value>local</ns2:value>
+										</ns2:terminology_id>
+										<ns2:code_string>at0030</ns2:code_string>
+									</ns2:defining_code>
+								</ns2:value>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0018">
+								<ns2:name>
+									<ns2:value>Caries risk</ns2:value>
+								</ns2:name>
+								<ns2:value xsi:type="ns2:DV_ORDINAL">
+									<ns2:value>2</ns2:value>
+									<ns2:symbol>
+										<ns2:value>Red</ns2:value>
+										<ns2:defining_code>
+											<ns2:terminology_id>
+												<ns2:value>local</ns2:value>
+											</ns2:terminology_id>
+											<ns2:code_string>at0024</ns2:code_string>
+										</ns2:defining_code>
+									</ns2:symbol>
+								</ns2:value>
+							</ns2:items>
+						</ns2:items>
+					</ns2:data>
+				</ns2:events>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.investigations_results_rcp.v1">
+		<ns2:name>
+			<ns2:value>Investigations and results</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.investigations_results_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:OBSERVATION" archetype_node_id="openEHR-EHR-OBSERVATION.imaging_exam.v1">
+			<ns2:name>
+				<ns2:value>Imaging examination result</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-OBSERVATION.imaging_exam.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Event Series</ns2:value>
+				</ns2:name>
+				<ns2:origin>
+					<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+				</ns2:origin>
+				<ns2:events xsi:type="ns2:POINT_EVENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Any event</ns2:value>
+					</ns2:name>
+					<ns2:time>
+						<ns2:value>2014-09-23T00:11:02.518+02:00</ns2:value>
+					</ns2:time>
+					<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0003">
+						<ns2:name>
+							<ns2:value>Tree</ns2:value>
+						</ns2:name>
+						<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0004">
+							<ns2:name>
+								<ns2:value>Examination result name</ns2:value>
+							</ns2:name>
+							<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+								<ns2:value>Radiography of teeth </ns2:value>
+								<ns2:defining_code>
+									<ns2:terminology_id>
+										<ns2:value>SNOMED-CT</ns2:value>
+									</ns2:terminology_id>
+									<ns2:code_string>22891007</ns2:code_string>
+								</ns2:defining_code>
+							</ns2:value>
+						</ns2:items>
+						<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0007">
+							<ns2:name>
+								<ns2:value>Overall result status</ns2:value>
+							</ns2:name>
+							<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+								<ns2:value>Final</ns2:value>
+								<ns2:defining_code>
+									<ns2:terminology_id>
+										<ns2:value>local</ns2:value>
+									</ns2:terminology_id>
+									<ns2:code_string>at0011</ns2:code_string>
+								</ns2:defining_code>
+							</ns2:value>
+						</ns2:items>
+						<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="at0015">
+							<ns2:name>
+								<ns2:value>Result group</ns2:value>
+							</ns2:name>
+							<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="at0016">
+								<ns2:name>
+									<ns2:value>Decayed teeth</ns2:value>
+								</ns2:name>
+								<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0017">
+									<ns2:name>
+										<ns2:value>Decayed teeth</ns2:value>
+									</ns2:name>
+									<ns2:value xsi:type="ns2:DV_COUNT">
+										<ns2:magnitude>4</ns2:magnitude>
+									</ns2:value>
+								</ns2:items>
+							</ns2:items>
+							<ns2:items xsi:type="ns2:CLUSTER" archetype_node_id="at0016">
+								<ns2:name>
+									<ns2:value>Teeth with associated abscesses</ns2:value>
+								</ns2:name>
+								<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0017">
+									<ns2:name>
+										<ns2:value>Teeth with associated abscesses</ns2:value>
+									</ns2:name>
+									<ns2:value xsi:type="ns2:DV_COUNT">
+										<ns2:magnitude>3</ns2:magnitude>
+									</ns2:value>
+								</ns2:items>
+							</ns2:items>
+						</ns2:items>
+						<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0020">
+							<ns2:name>
+								<ns2:value>Radiological diagnosis</ns2:value>
+							</ns2:name>
+							<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+								<ns2:value>No pathologic diagnosis</ns2:value>
+								<ns2:defining_code>
+									<ns2:terminology_id>
+										<ns2:value>SNOMED-CT</ns2:value>
+									</ns2:terminology_id>
+									<ns2:code_string>23875004</ns2:code_string>
+								</ns2:defining_code>
+							</ns2:value>
+						</ns2:items>
+					</ns2:data>
+				</ns2:events>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.plan_requested_actions_rcp.v1">
+		<ns2:name>
+			<ns2:value>Plan and requested actions</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.plan_requested_actions_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:EVALUATION" archetype_node_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+			<ns2:name>
+				<ns2:value>Plan and requested actions synopsis</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-EVALUATION.clinical_synopsis.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>List</ns2:value>
+				</ns2:name>
+				<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Synopsis</ns2:value>
+					</ns2:name>
+					<ns2:value xsi:type="ns2:DV_TEXT">
+						<ns2:value>Preventitive dental care, Dental treatment under GA</ns2:value>
+					</ns2:value>
+				</ns2:items>
+			</ns2:data>
+		</ns2:items>
+		<ns2:items xsi:type="ns2:INSTRUCTION" archetype_node_id="openEHR-EHR-INSTRUCTION.request-follow_up.v1">
+			<ns2:name>
+				<ns2:value>Follow Up Request</ns2:value>
+			</ns2:name>
+			<ns2:uid xsi:type="ns2:HIER_OBJECT_ID">
+				<ns2:value>f36d8e67-6609-40be-ac0f-35f0fe900d1e</ns2:value>
+			</ns2:uid>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-INSTRUCTION.request-follow_up.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:narrative>
+				<ns2:value>Dental examination</ns2:value>
+			</ns2:narrative>
+			<ns2:activities archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>Request</ns2:value>
+				</ns2:name>
+				<ns2:description xsi:type="ns2:ITEM_TREE" archetype_node_id="at0009">
+					<ns2:name>
+						<ns2:value>Tree</ns2:value>
+					</ns2:name>
+					<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0121.1">
+						<ns2:name>
+							<ns2:value>Follow up Service Requested</ns2:value>
+						</ns2:name>
+						<ns2:value xsi:type="ns2:DV_CODED_TEXT">
+							<ns2:value>Dental examination</ns2:value>
+							<ns2:defining_code>
+								<ns2:terminology_id>
+									<ns2:value>SNOMED-CT</ns2:value>
+								</ns2:terminology_id>
+								<ns2:code_string>141954009</ns2:code_string>
+							</ns2:defining_code>
+						</ns2:value>
+					</ns2:items>
+					<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0135.1">
+						<ns2:name>
+							<ns2:value>Description of Follow Up</ns2:value>
+						</ns2:name>
+						<ns2:value xsi:type="ns2:DV_TEXT">
+							<ns2:value>Review in 4 weeks.</ns2:value>
+						</ns2:value>
+					</ns2:items>
+				</ns2:description>
+				<ns2:timing>
+					<ns2:value>dummy</ns2:value>
+					<ns2:formalism>dummy</ns2:formalism>
+				</ns2:timing>
+				<ns2:action_archetype_id>/.*/</ns2:action_archetype_id>
+			</ns2:activities>
+		</ns2:items>
+	</ns2:content>
+	<ns2:content xsi:type="ns2:SECTION" archetype_node_id="openEHR-EHR-SECTION.clinical_summary_rcp.v1">
+		<ns2:name>
+			<ns2:value>Clinical Summary</ns2:value>
+		</ns2:name>
+		<ns2:archetype_details>
+			<ns2:archetype_id>
+				<ns2:value>openEHR-EHR-SECTION.clinical_summary_rcp.v1</ns2:value>
+			</ns2:archetype_id>
+			<ns2:rm_version>1.0.1</ns2:rm_version>
+		</ns2:archetype_details>
+		<ns2:items xsi:type="ns2:EVALUATION" archetype_node_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+			<ns2:name>
+				<ns2:value>Clinical Synopsis</ns2:value>
+			</ns2:name>
+			<ns2:archetype_details>
+				<ns2:archetype_id>
+					<ns2:value>openEHR-EHR-EVALUATION.clinical_synopsis.v1</ns2:value>
+				</ns2:archetype_id>
+				<ns2:rm_version>1.0.1</ns2:rm_version>
+			</ns2:archetype_details>
+			<ns2:language>
+				<ns2:terminology_id>
+					<ns2:value>ISO_639-1</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>en</ns2:code_string>
+			</ns2:language>
+			<ns2:encoding>
+				<ns2:terminology_id>
+					<ns2:value>IANA_character-sets</ns2:value>
+				</ns2:terminology_id>
+				<ns2:code_string>UTF-8</ns2:code_string>
+			</ns2:encoding>
+			<ns2:subject xsi:type="ns2:PARTY_SELF"/>
+			<ns2:data xsi:type="ns2:ITEM_TREE" archetype_node_id="at0001">
+				<ns2:name>
+					<ns2:value>List</ns2:value>
+				</ns2:name>
+				<ns2:items xsi:type="ns2:ELEMENT" archetype_node_id="at0002">
+					<ns2:name>
+						<ns2:value>Synopsis</ns2:value>
+					</ns2:name>
+					<ns2:value xsi:type="ns2:DV_TEXT">
+						<ns2:value>Significant dental issues.</ns2:value>
+					</ns2:value>
+				</ns2:items>
+			</ns2:data>
+		</ns2:items>
+	</ns2:content>
+</composition>

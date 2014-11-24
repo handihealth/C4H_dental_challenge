@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:oe="http://schemas.openehr.org/v1" xmlns="http://schemas.oceanehr.com/TemplateDataExtract" elementFormDefault="qualified" 
+  targetNamespace="http://schemas.oceanehr.com/TemplateDataExtract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="BaseTypes.xsd" namespace="http://schemas.openehr.org/v1" />
+  <xs:element name="Extract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Subject" type="Subject" />
+        <xs:any namespace="http://schemas.oceanehr.com/templates" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Subject">
+    <xs:sequence>
+      <xs:element name="type" type="oe:DV_TEXT" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="identities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="purpose" type="oe:DV_TEXT" />
+            <xs:element minOccurs="0" name="Name">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Surname" type="oe:DV_TEXT" />
+                  <xs:element name="Firstname" type="oe:DV_TEXT" />
+                </xs:sequence>
+                <xs:attribute name="archetype_node_id" />
+                <xs:attribute name="type" fixed="oe:CLUSTER"/>          
+              </xs:complexType>
+              </xs:element>
+            <xs:element minOccurs="0" name="DateOfBirth" type="oe:DV_DATE_TIME" />
+            <xs:element minOccurs="0" name="Gender" type="oe:DV_TEXT" />
+          </xs:sequence>
+          <xs:attribute name="archetype_node_id" />
+          <xs:attribute name="type" fixed="oe:PARTY_IDENTITY"/>          
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="contacts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="purpose" type="oe:DV_TEXT" />
+            <xs:element name="time_validity" type="oe:DV_INTERVAL" minOccurs="0"/>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="addresses">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="type" type="oe:DV_TEXT" />
+                  <xs:element minOccurs="0" name="street" type="oe:DV_TEXT" />
+                  <xs:element minOccurs="0" name="suburb" type="oe:DV_TEXT" />
+                  <xs:element minOccurs="0" name="state" type="oe:DV_TEXT" />
+                  <xs:element minOccurs="0" name="postCode" type="oe:DV_TEXT" />
+                  <xs:element minOccurs="0" name="country" type="oe:DV_TEXT" />
+                </xs:sequence>
+                <xs:attribute name="archetype_node_id" />
+                <xs:attribute name="type" fixed="oe:ADDRESS"/>                    
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="archetype_node_id" />
+          <xs:attribute name="type" fixed="oe:CONTACT"/>                    
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Id" type="oe:DV_IDENTIFIER" />
+    </xs:sequence>
+    <xs:attribute name="archetype_node_id" />
+    <xs:attribute name="type" fixed="oe:PERSON"/>
+  </xs:complexType>
+</xs:schema>
