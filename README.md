@@ -608,12 +608,9 @@ $.ajax({
     }
 });
 ```
-###Handling specific datatypes
+###Handling specific openEHR datatypes
 
-To be completed
-
-**text**
-
+**text**  
 Text handling is normally straightforward. 
 
     FLAT + STRUCTURED
@@ -622,7 +619,7 @@ Text handling is normally straightforward.
        "Significant dental issues."
     ]
 
-**codedText**
+**codedText**  
 For an external terminology, the terminologyId, code and text value must be supplied but in JSON FLAT and STRUCTURED formats only the local 'atcode' needs to be supplied.
 
     STRUCTURED format
@@ -653,7 +650,7 @@ For an external terminology, the terminologyId, code and text value must be supp
 		"community_dental_final_assessment_letter/history:0/story_history:0/symptom:0/symptom_name|code": "102616008",
 		"community_dental_final_assessment_letter/history:0/story_history:0/symptom:0/symptom_name|terminology": "SNOMED-CT"
 			
-**ordinal**
+**ordinal**  
 For JSON FLAT and STRUCTURED formats only the local 'atcode' needs to be supplied although the ordinal and text value cacomplete are also accpeted
 
 	  FLAT format
