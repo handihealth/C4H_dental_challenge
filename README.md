@@ -168,28 +168,31 @@ Note that these severs currently return slightly different formats. This is expe
 
 **Keira Jones**
 
-    FHIR Patient identifier (NHS Number):7430345
+    FHIR Patient identifier (NHS Number):8654303456
     Ehrscape ehrId: 7df3a7f8-18a4-4602-a7c6-d77db59a3d23
     Ehrscape example compositionId: 82b75afd-b874-406f-8305-bc83adcf68ad::c4h_dental::1
+		Ehrscape partyId: 7253
 
 ****Robin Jones**
 
-    FHIR Patient identifier (NHS Number): 6664526789
+    FHIR Patient identifier (NHS Number): 2124526789
     Ehrscape ehrId: 20afae42-7f14-4021-b05d-d5a1ff07b625 
     Ehrscape example compositionId: ea73fa69-dbed-41b5-a9f2-731f6bfc0773::c4h_dental::1
+    Ehrscape partyId: 7259
 
 ****Kim Dalton**
 
-    FHIR Patient identifier (NHS Number):
-    Ehrscape ehrId: 
-    Ehrscape example compositionId:
-
+    FHIR Patient identifier (NHS Number): 7430345
+    Ehrscape ehrId: 243bd7d4-11ae-4301-9996-f30607a16588
+    Ehrscape example compositionId: 2d66a141-350b-40a7-9f1e-f6c90e3db5e7::c4h_dental::1
+		Ehrscape partyId: 7568
+		
 ****Jonny Dalton**
 
-    FHIR Patient identifier (NHS Number): 3224526789
-    Ehrscape ehrId: 7df3a7f8-18a4-4602-a7c6-d77db59a3d23
-    Ehrscape example compositionId: 025e2db1-a5fd-4089-a251-4137f9029ed3::c4h_dental::1
-
+    FHIR Patient identifier (NHS Number): 7430444
+    Ehrscape ehrId: f5a44d7f-8049-4bc8-ace3-09d88075e43d
+    Ehrscape example compositionId: bf121187-c391-4369-902d-9d9877cc3894::c4h_dental::1
+    Ehrscape partyId: 7256
 
 
 ###B. Develop Dental Assessment form 
@@ -240,7 +243,7 @@ Appropriate APIs will be provided but these should match the [EhrScape compositi
 
 #openEHR and HANDI-HOPD Ehrscape
 
-The [HANDI-HOPD Ehrscape API](https://www.ehrscape.com/api-explorer.html), developed by Marand, provides a simple restful API which hides much of the complexity of the underlying openEHR server. In particular it accepts simpler, flatter forms of data, using defaults within the template schema to correctly populate the canonical openEHR data which is actually stored internally. Crews may find it easier simply to do a brute-force text substitution on the json string, rather than parsing into objects e.g. with [Handlebars](http://handlebarsjs.com/).
+The [HANDI-HOPD Ehrscape API](https://www.ehrscape.com/api-explorer.html), developed by Marand, provides a simple restful API which hides much of the complexity of the underlying openEHR server. In particular it accepts simpler, flatter forms of data, using defaults within the template schema to correctly populate the canonical openEHR data which is actually stored internally. Crews may find it easier to use a 'Template engine' on the json string, rather than parsing into objects e.g. with [Handlebars](http://handlebarsjs.com/) or [Apache Velocity](http://en.wikipedia.org/wiki/Apache_Velocity).
 
 The FLAT JSON format is just a set of simple name/value pairs where the 'name' carries the path to each element. You do not need to parse this path.
 
@@ -692,14 +695,15 @@ While it may seem more easier and more logical to use a boolean datatype, this i
 
 In the case of 'Dental pain' the rule is ...
 
-If the checkbox is ticked, populate the Symptom name with the SNOMED-CT term 102616008 - Painful mouth
-
-If the checkbox is unticked, omit the Symptom name element completely.
+    If the checkbox is ticked, populate the Symptom name with the SNOMED-CT term 102616008 - Painful mouth
+		
+    If the checkbox is unticked, omit the Symptom name element completely.
 
 Conversely when loading a persisted dataset, the checkbox should only be checked if the Symptom name element is present and contains SNOMED-CT term 102616008.
 
 
 **Multiple occurrence data**
+
 Some aspects of the Dental Assessment form are handled as multiple occurences of the same data point in the underlying dataset.
 
 e.g. In the demo app, Dental RAG score / Caries / Patient factors are captured as a set of checkboxes. The underlying dataset, however stores these as muutiple occurences of the same element.
@@ -719,17 +723,17 @@ e.g. In the demo app, Dental RAG score / Caries / Patient factors are captured a
 
 ### openEHR Reference model attributes
 
- A number of key data points need to be populated in an openEHR composition, which may not be appraent from the archetypes or templates. Developers can largely use the example instance documents and APIs for guidance but these notes may give useful background. Links are given to a UML representation ofthe openEHR documentation.
+A number of key data points need to be populated in an openEHR composition, which may not be appraent from the archetypes or templates. Developers can largely use the example instance documents and APIs for guidance but these notes may give useful background in addition to viewing the [UML view of the openEHR reference model.](http://www.openehr.org/local/releases/1.0.1/uml/index.html) 
 
-committer: This is the name of the person physically committing the document ie. the person logged on to the account. If ommited from API calls, Ehrscape will use the domain login name.
+**committer:** This is the name of the person physically committing the document ie. the person logged on to the account. If ommited from API calls, Ehrscape will use the domain login name.
  
-composition/composer: This is the clinical author of the document i.e the person with clinical responsibility. Ehrscape FLAT and STRCTURTED fromats handle this as composer_name.
+**composition/composer:** This is the clinical author of the document i.e the person with clinical responsibility. Ehrscape FLAT and STRCTURTED formats handle this as composer_name.
 
-composition/context/start_date: This is the time that the clinical interaction with the patient began. Ehrscape FLAT and STRUCTURED formats handle this as ctx/time.
+**composition/context/start_time:** This is the time that the clinical interaction with the patient began. Ehrscape FLAT and STRUCTURED formats handle this as ctx/time.
 
-composition/context/healthcare_facility: This is the healthcare facility / oragnisation under who's remit the encounter took place.
+**composition/context/health_care_facility:** This is the healthcare facility / oragnisation under who's remit the encounter took place.
 
-observation/origin
+**observation/time:** Thisis the time that a patient's signs and symptoms were observed ora test was run.
 
 The Ehrscape FLAT and STRUCTURED formats hide much of the complexity of these attributes, providing sensible defaults.
 In particular the `ctx` header common to both JSON STRUCTURED and FLAT formats, considerably simplifies the composition header ...
@@ -744,3 +748,65 @@ In particular the `ctx` header common to both JSON STRUCTURED and FLAT formats, 
      "ctx/time": "2014-09-23T00:11:02.518+02:00",
 
  
+## openEHR Connectathon Ehrscape API endpoints
+
+Other openEHR vendors have been working to emulate the Ehrscape API so that it should be possible to make a limited selectionm of Ehrscape calls to other openEHR servers simply by changing the baseUrl
+
+####BaseURLs
+
+**Ocean Informatics/Lockheed Martin UK**  
+Server: OceanEHR   
+Stack:  C#  Windows SQL Server  
+baseUrl: `http://191.233.67.148/`
+
+**Marand Slovenia**  
+Server: Think!Ehr   
+Stack: Java Linux Oracle  
+baseUrl: `https://rest.ehrscape.com/rest/v1`  
+Documentation: `https://www.ehrscape.com/api-explorer.html`  
+
+**Code24 Netherlands**  
+Server: Base24  
+Stack: PHP Linux Mysql  
+baseUrl: `https://rest.base24.nl/`  
+documentation: `https://rest.base24.nl/docs#`  
+
+
+####Supported Ehrscape calls
+
+**/session**  
+
+POST /session  
+DELETE /session  
+
+**/ehr**  
+
+GET /ehr/{ehrId}  
+GET /ehr/?subjectId={subjectId}  
+
+**/composition**  
+
+GET /composition/{compositionId}&format=RAW  Headers:{Accept= 'application/xml'}  
+POST /composition/?ehrId&format=RAW Headers:{Content-Type= 'application/xml'}  
+PUT /composition/{compositionId}&format=RAW Headers:{Content-Type= 'application/xml'}  
+
+**/template**  
+
+POST /template Headers:{Content-Type= 'application/xml'}  
+
+**/query**  
+
+GET /query?aql={aqlString}  
+
+AQL to return the last commited instance of the Dental Assessment composition for a specific patient:
+   
+		select
+    a/uid/value as uid_value,
+    v/commit_audit/time_committed/value
+    from EHR e [ehr_id/value='{{ehrId}}'] contains
+    VERSION v
+    contains COMPOSITION a[openEHR-EHR-COMPOSITION.report.v1]
+    where a/name/value='Community Dental Final Assessment Letter'
+    order by v/commit_audit/time_committed/value desc
+    offset 0 limit 1
+
