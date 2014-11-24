@@ -700,7 +700,7 @@ Conversely when loading a persisted dataset, the checkbox should only be checked
 
 
 **Multiple occurrence data**
-Some aspects of the form are handled as multiple occurences of the same data point in the underlying dataset.
+Some aspects of the Dental Assessment form are handled as multiple occurences of the same data point in the underlying dataset.
 
 e.g. In the demo app, Dental RAG score / Caries / Patient factors are captured as a set of checkboxes. The underlying dataset, however stores these as muutiple occurences of the same element.
 
@@ -721,26 +721,18 @@ e.g. In the demo app, Dental RAG score / Caries / Patient factors are captured a
 
  A number of key data points need to be populated in an openEHR composition, which may not be appraent from the archetypes or templates. Developers can largely use the example instance documents and APIs for guidance but these notes may give useful background. Links are given to a UML representation ofthe openEHR documentation.
 
-     API attributes
-		
- 		commiter: Thisis the name
+committer: This is the name of the person physically committing the document ie. the person logged on to the account. If ommited from API calls, Ehrscape will use the domain login name.
  
+composition/composer: This is the clinical author of the document i.e the person with clinical responsibility. Ehrscape FLAT and STRCTURTED fromats handle this as composer_name.
 
-     COMPOSITION attributes
- 		composer
-     composerId
+composition/context/start_date: This is the time that the clinical interaction with the patient began. Ehrscape FLAT and STRUCTURED formats handle this as ctx/time.
 
-     starttime
+composition/context/healthcare_facility: This is the healthcare facility / oragnisation under who's remit the encounter took place.
 
-     healthcare_facility
+observation/origin
 
-     OBSERVATION attributes
-		/time
-
-
-
- The Ehrscape FLAT and STRUCTURED formats hide much of the complexity of these attributes, providing sensible defaults.
- In particular the `ctx` header common to both JSON STRUCTURED and FLAT formats, considerably simplifies the composition header ...
+The Ehrscape FLAT and STRUCTURED formats hide much of the complexity of these attributes, providing sensible defaults.
+In particular the `ctx` header common to both JSON STRUCTURED and FLAT formats, considerably simplifies the composition header ...
 
      "ctx/composer_name": "Rebecca Wassall",
      "ctx/health_care_facility|id": "999999-345",
