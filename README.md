@@ -685,7 +685,7 @@ Dates need to be persisted in the [ISO8061 format.](http://www.w3.org/TR/NOTE-da
 
 ### Tricky issues
 
-**Converting UI checkboxes to/from codedText**
+**Converting UI checkboxes to/from codedText**  
 
 In a number of places, the demo UI is represented as aset of checkboxes, while the underlying data is modelled as codedText.
 
@@ -702,7 +702,7 @@ In the case of 'Dental pain' the rule is ...
 Conversely when loading a persisted dataset, the checkbox should only be checked if the Symptom name element is present and contains SNOMED-CT term 102616008.
 
 
-**Multiple occurrence data**
+**Multiple occurrence data**  
 
 Some aspects of the Dental Assessment form are handled as multiple occurences of the same data point in the underlying dataset.
 
