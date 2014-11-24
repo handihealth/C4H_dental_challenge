@@ -676,7 +676,7 @@ For JSON FLAT and STRUCTURED formats only the local 'atcode' needs to be supplie
 		]
 
 
-**date**
+**date**  
 Dates need to be persisted in the [ISO8061 format.](http://www.w3.org/TR/NOTE-datetime) and should be displayed in CUI format e.g. 12-Nov-1958
 
 
