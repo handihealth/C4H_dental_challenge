@@ -1,12 +1,7 @@
-dental_RAG-score
-================
+C4H Dental App Challenge prototype
+==================================
 
-Web-based tool for easy calculation of dental RAG scores.
+A simple prototype app which has been provided to help clarify the clinical requirements and the RAG Risk score algorithm, but does not include any integration with demographics or Ehrscape APIs.
 
-Calculates Red, Amber or Green scores for each of the four following clinical domains:
-
-1. Caries
-1. Soft Tissue
-1. Periodontal Disease
-1. Tooth Surface Loss
+Hack teams are, of course, welcome to create a very different UI.
 
