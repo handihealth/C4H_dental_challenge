@@ -40,7 +40,7 @@ To ensure that the app challenge can progress rapidly, a small number of assets 
 *   A minimal Prototype Dental Assesment data entry web app
 
 ###The prototype Dental Assessment data entry web app
- A [simple prototype app](http://c4hdental-handihopd.rhcloud.com/) with [source code on GitHub.](https://github.com/handihealth/C4H_dental_challenge) has been provided to help clarify the clinical requirements and the RAG Risk score algorithm, but does not include any integration with demographics or Ehrscape APIs. Hack teams are, of course, welcome to create a very different UI. 
+ A [simple prototype app](http://c4hdental-handihopd.rhcloud.com/) with [source code on GitHub.](https://github.com/handihealth/C4H_dental_challenge/tree/master/dental_app) has been provided to help clarify the clinical requirements and the RAG Risk score algorithm, but does not include any integration with demographics or Ehrscape APIs. Hack teams are, of course, welcome to create a very different UI. 
 
  The key challenge for hack teams is to map the data fields into a target openEHR JSON string (to be provided). That string is then passed to the Ehrscape API for persistence.
 
@@ -154,7 +154,7 @@ The API will follow the FHIR Patient resource very closely and is likely to be o
 
     GET {{baseurl}}/patient/?identifer={{nhsNumber}} where nhsNumber=7430345
 
-Two FHIR demographics servers are available
+Two FHIR demographics servers are available:
 
 *  [BlackPear FHIRBall server](https://pyruscloud.blackpear.com/fhir/Patient?identifier=7430345)  
 *  [NeovaHealth FHIR-like server](http://nhsdemo.openeobs.net/api/v1/patient?identifier=7430345) (needs Basic Authentication: login=fhir_api pwd=fhir_api))
@@ -164,6 +164,7 @@ This will return a FHIR JSON string aligned with the [FHIR Patient resource.](ht
 e.g. [FHIR JSON Patient Example](https://github.com/handihealth/C4H_dental_challenge/blob/master/technical/instances/fhir%20child%20female.json)
 
 Note that these severs currently return slightly different formats. This is expected to be resolved as part of the App challenge, or possibly in advance.
+
 
 ###B. Develop Dental Assessment form 
 
@@ -276,9 +277,6 @@ A number of key data points need to be populated in an openEHR composition, whic
 		
 		/time
 
-    ACTION attributes
-		
-		/time
 
 
 The Ehrscape FLAT and STRUCTURED formats hide much of the complexity of these attributes, providing sensible defaults.
@@ -379,16 +377,17 @@ The Marand Ehr Explorer tool is primarily used to create openEHR queries which w
 2. Enter the name and password for the Code4Health Dental domain `login:c4h_dental pwd:babyteeth23`
 3. Leave the domain field as `'ehrscape'`
 
+![EHRExplorer](./img/ehr_explorer.png)
 In the navigation bar on the left you can double-click on the AoMRC Community Dental Assessment (composition) template, which will open the template in the bottom-right panel. Right-click on nodes for further details of the constaints applied.
 
-e.g. If you navigate to **'Plaque Control'** and right-click you can examine the internal *'atcode'* constrtaints allowed for this element.
+e.g. If you navigate to **'Plaque Control'** and right-click you can examine the internal *'atcode'* constraints allowed for this element.
 
 #### Ehrscape API browser
 
 The Marand Ehr Explorer tool is primarily used to create openEHR queries which will not be used much in this challenge but it may be helpful in allowing you to examine the openEHR templates which define the App chalenge dataset.
  
 1. Browse to [EHRScape API Explorer](https://dev.ehrscape.com/api-explorer.html)
-2. Press the setting (*) button and set userName to `c4h_dental` and password to `babyteeth23` 
+2. Press the ![Settings button](./img/tool_button.png) tool setting button and set userName to `c4h_dental` and password to `babyteeth23` 
 3. Any test calls in the API browser will now work against the Code4health Dental App challenge domain.
 
 
@@ -409,9 +408,9 @@ The HANDI-HOPD Ehrscape API consumes, retrieves and queries patient healthcare d
 
 -   **ehrId:** variable `ehrId`: holds our sample patient’s ehrId. In openEHR the ehrId is the internal identifier used ot identify all of the health records for a single patient
 
--   **compositions:** All openEHR data is persisted as a 'composition' which includes header information such as the author of the clinical record 'composer', dates and times etc. Every composition has a unique ID and can be updated, in case of error. The rpevious version is always retained.
+-   **compositions:** All openEHR data is persisted as a 'composition' which includes header information such as the author of the clinical record 'composer', dates and times etc. Every composition has a unique ID and can be updated, in case of error. The previous version is always retained.
 
--   **AQL:** Ehrscape supports the use of AQL (Archetype Query Language) which allows highly granlar querying of openEHR compositions, including corss-composition, cross ehr querying. AQL will not be used much in the App challenge but is 
+-   **AQL:** Ehrscape supports the use of AQL (Archetype Query Language) which allows highly granular querying of openEHR compositions, including corss-composition, cross ehr querying. AQL will not be used much in the App challenge but is 
 
 
 Get a SessionId
@@ -573,7 +572,7 @@ $.ajax({
     }
 });
 ```
-which, if successful, returns the compositionID of the successfully commited composition, with th e version identifier incremented. This is the compositionId that you will need to update the next time.
+which, if successful, returns the compositionID of the successfully commited composition, with the version identifier incremented. This is the compositionId that you will need to update the next time.
 
     https://rest.ehrscape.com/rest/v1/composition/82b75afd-b874-406f-8305-bc83adcf68ad::c4h_dental::2
 
