@@ -27,7 +27,7 @@ Current problem: In Northumbria CDS we use paper based clinical records and to s
 2. Create the Dental Assessment data entry form
 3. Persist the completed Dental Assessment data entry form to the HANDI-HOPD platform (Ehrscape API)
 4. Create a service which transforms the persisted document to a PDF for attachment to an email.
-5. Re-persist the openEHR document to other openEHR vendor servers (Ocean, Code24, Cabolabs).
+5. Re-persist the openEHR document to other openEHR vendor servers (OceanEHR, Code24).
 
 It is expected that most hack teams will concentrate on items 1,2,3.   
 We have identified a team who are happy to concentrate on items 4 and 5.
@@ -172,6 +172,9 @@ Note that these severs currently return slightly different formats. This is expe
     Ehrscape ehrId: 7df3a7f8-18a4-4602-a7c6-d77db59a3d23
     Ehrscape example compositionId: 82b75afd-b874-406f-8305-bc83adcf68ad::c4h_dental::1
 		Ehrscape partyId: 7253
+		
+		Base24 ehrId: 533bbad8-1b63-4033-b36c-832c90bbe743
+	  OceanEhr ehrId: 
 
 ****Robin Jones**
 
@@ -179,6 +182,9 @@ Note that these severs currently return slightly different formats. This is expe
     Ehrscape ehrId: 20afae42-7f14-4021-b05d-d5a1ff07b625 
     Ehrscape example compositionId: ea73fa69-dbed-41b5-a9f2-731f6bfc0773::c4h_dental::1
     Ehrscape partyId: 7259
+		
+		Code24 ehrId: 359da639-e146-4691-a01a-b915db7037a8
+	  OceanEhr ehrId: 
 
 ****Kim Dalton**
 
@@ -187,12 +193,18 @@ Note that these severs currently return slightly different formats. This is expe
     Ehrscape example compositionId: 2d66a141-350b-40a7-9f1e-f6c90e3db5e7::c4h_dental::1
 		Ehrscape partyId: 7568
 		
+		Code24 ehrId: af3402ac-71c0-4b99-851f-d05ae871b68e 
+	  OceanEhr ehrId: 
+		
 ****Jonny Dalton**
 
     FHIR Patient identifier (NHS Number): 7430444
     Ehrscape ehrId: f5a44d7f-8049-4bc8-ace3-09d88075e43d
     Ehrscape example compositionId: bf121187-c391-4369-902d-9d9877cc3894::c4h_dental::1
     Ehrscape partyId: 7256
+		
+		Code24 ehrId: 969ae8f8-de5a-4f7c-838b-e9c3e619cea
+	  OceanEhr ehrId: 
 
 
 ###B. Develop Dental Assessment form 
@@ -377,7 +389,14 @@ Postman collection and environment files for the app challenge are available on 
 
 ### Some basic openEHR/Ehrscape concepts
 
-The HANDI-HOPD Ehrscape API consumes, retrieves and queries patient healthcare data using a standardised specification and querying format defined by the openEHR Foundation. openEHR is complex and can be difficult for novices to understand (even those with a strong technical background ). In essence it provides a way for clinicians 
+The HANDI-HOPD Ehrscape API consumes, retrieves and queries patient healthcare data using a standardised specification and querying format defined by the openEHR Foundation. openEHR is complex and can be difficult for novices to understand (even those with a solid technical background) but the Ehrscape API considerably simplifies the interface with openEHR systems. 
+
+**Clinical Information components**   
+[openEHR](http://openehr.org) provides a way for clinicians to define and share open-source, vendor-neutral clinical information components ('archetypes' and 'templates') which can be consumed, persisted and queried by different technology stacks, as long as they adhere to the openEHR specifications. Examples of archetypes used in this project are `'Procedure', 'Symptom', and 'Imaging result'`. These are managed by the openEHR Foundation using the [Clinical Knowledge Manager](http://openehr.org/ckm) tool and mirrored to [Github](https://github.com/openEHR/CKM-mirror), with a CC-BY-SA licence.
+
+
+**Key concepts**
+
 -   **baseUrl:** variable `baseUrl`: holds the base url of the REST service. To get
     to a specific REST service we’ll append it to the base url, i.e.:
 
@@ -388,7 +407,7 @@ The HANDI-HOPD Ehrscape API consumes, retrieves and queries patient healthcare d
 
 -   **compositions:** All openEHR data is persisted as a 'composition' which includes header information such as the author of the clinical record 'composer', dates and times etc. Every composition has a unique ID and can be updated, in case of error. The previous version is always retained.
 
--   **AQL:** Ehrscape supports the use of AQL (Archetype Query Language) which allows highly granular querying of openEHR compositions, including corss-composition, cross ehr querying. AQL will not be used much in the App challenge but is 
+-   **AQL:** Ehrscape supports the use of AQL (Archetype Query Language) which allows highly granular querying of openEHR compositions, including corss-composition, cross ehr querying. AQL will not be used in core aspects of the Dental App challenge. 
 
 
 Get a SessionId
@@ -806,4 +825,12 @@ AQL to return the last commited instance of the Dental Assessment composition fo
     where a/name/value='Community Dental Final Assessment Letter'
     order by v/commit_audit/time_committed/value desc
     offset 0 limit 1
+
+
+#### Medvision360 Medecord Dental Assessment API
+
+[Medvision360 Medrecord](http://www.medrecord.nl) takes a different approach to openEHR implementation, providing simple local APIs designed against a set of archetypes.
+ 
+The Medvision team have generated a [local API](http://mr.dev.medvision360.org/mr/apidocs/#!/nl_medrecord_model_api_ehr_composition_dentalrag_v1) based on the openEHR Dental Assessment archetypes which may be of interest.
+
 
