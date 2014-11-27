@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-6">
+        <select
+                class="ehr-combo"
+                ng-class="::EhrLayoutHelper.computeFieldClass(model)"
+                ng-readonly="model.getViewConfig().isReadOnly()"
+                ng-hide="model.getViewConfig().isHidden()"
+                ng-model="codeValue"
+                ng-model-options="{ getterSetter: true }"
+                ng-options="item.getValue() as item.getLabel(EhrContext.language) for item in list()"
+                pretty-select-form
+                >
+            <option value=""> </option>
+        </select>
+    </div>
+</div>
